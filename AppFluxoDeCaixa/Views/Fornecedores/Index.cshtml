@@ -1,10 +1,10 @@
-﻿@model IEnumerable<AppFluxoDeCaixa.Models.Clientes>
+﻿@model IEnumerable<AppFluxoDeCaixa.Models.Fornecedor>
 
 @{
-    ViewData["Title"] = "Cadastro de Clientes";
+    ViewData["Title"] = "Cadastro de Fornecedores";
 }
 <div class="container">
-    <h1 class="display-5 text-light text-center">Cadastro de Clientes</h1>
+    <h1 class="display-5 text-light text-center">Cadastro de Fornecedores</h1>
     <p>
         <a asp-action="Create" class="btn btn-lg btn-secondary mt-3">Adicionar</a>
     </p>
@@ -14,22 +14,22 @@
             <thead>
                 <tr>
                     <th class="bg-black">
-                        @Html.DisplayNameFor(model => model.ClientesNome)
+                        @Html.DisplayNameFor(model => model.Nome)
+                    </th>
+                    <th class="bg-black">
+                        @Html.DisplayNameFor(model => model.CNPJ)
                     </th>
                     <th class="bg-black">
                         @Html.DisplayNameFor(model => model.Email)
                     </th>
                     <th class="bg-black">
-                        @Html.DisplayNameFor(model => model.Celular)
+                        @Html.DisplayNameFor(model => model.Telefone)
                     </th>
                     <th class="bg-black">
-                        @Html.DisplayNameFor(model => model.CpfCnpj)
+                        @Html.DisplayNameFor(model => model.DataCadastro)
                     </th>
                     <th class="bg-black">
-                        @Html.DisplayNameFor(model => model.DataNascFundacao)
-                    </th>
-                    <th class="bg-black">
-                        @Html.DisplayNameFor(model => model.CadastroAtivo)
+                        @Html.DisplayNameFor(model => model.Ativo)
                     </th>
                     <th class="bg-black"></th>
                 </tr>
@@ -39,22 +39,22 @@
                 {
                     <tr>
                         <td>
-                            @Html.DisplayFor(modelItem => item.ClientesNome)
-                        </td>
-                        <td class="text-light text-decoration-none">
-                            @item.Email
+                            @Html.DisplayFor(modelItem => item.Nome)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Celular)
+                            @Html.DisplayFor(modelItem => item.CNPJ)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.CpfCnpj)
+                            @Html.DisplayFor(modelItem => item.Email)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.DataNascFundacao)
+                            @Html.DisplayFor(modelItem => item.Telefone)
                         </td>
                         <td>
-                            @if (item.CadastroAtivo == true)
+                            @Html.DisplayFor(modelItem => item.DataCadastro)
+                        </td>
+                        <td>
+                            @if (item.Ativo == true)
                             {
                                 <span>Sim</span>
                             }
@@ -64,9 +64,9 @@
                             }
                         </td>
                         <td>
-                            <a class="btn btn-sm btn-outline-primary me-2" asp-action="Edit" asp-route-id="@item.ClientesId">Editar</a>
+                            <a class="btn btn-sm btn-outline-primary me-2" asp-action="Edit" asp-action="Edit" asp-route-id="@item.FornecedorId">Editar</a>
 
-                            <a class="btn btn-sm btn-outline-danger" asp-action="Delete" asp-route-id="@item.ClientesId">Deletar</a>
+                            <a class="btn btn-sm btn-outline-danger" asp-action="Delete" asp-action="Delete" asp-route-id="@item.FornecedorId">Delete</a>
                         </td>
                     </tr>
                 }

@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Runtime.InteropServices;
 
 namespace AppFluxoDeCaixa.Models
 {
@@ -25,7 +26,10 @@ namespace AppFluxoDeCaixa.Models
         [MinLength(10, ErrorMessage = "O Campo Nome deve ter, no mínimo, 10 Caracters")]
         public string Telefone { get; set; }
 
+        [Display(Name = "Data de Cadastro")]
         public DateTime DataCadastro { get; set; }
+
+        [Display(Name = "Ativo?")]
         public bool Ativo { get; set; }
     }
 }
